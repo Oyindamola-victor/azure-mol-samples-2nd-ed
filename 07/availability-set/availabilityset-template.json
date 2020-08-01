@@ -6,14 +6,14 @@
       "type": "string",
       "defaultValue": "azuremol",
       "metadata": {
-        "description": "Enter a username for your VM. Default user is created named `azuremol`."
+        "description": "Damola, Please enter a username for your VM. Default user is created named `azuremol`."
       }
     },
     "vmCount": {
       "type": "int",
-      "defaultValue": 3,
+      "defaultValue": 4,
       "metadata": {
-        "description": "Enter the number of VMs that you wish to create. The default is '3'."
+        "description": "Enter the number of VMs that you wish to create. The default is '4'."
       }
     },
     "sshKeyData": {
@@ -47,7 +47,7 @@
       "apiVersion": "2016-04-30-preview",
 	  "location": "[resourceGroup().location]",
 	  "properties": {
-	    "platformFaultDomainCount": "2",
+	    "platformFaultDomainCount": "3",
 	    "platformUpdateDomainCount": "5",
 	    "managed" : "true"
 	  }
@@ -102,7 +102,7 @@
     {
       "apiVersion": "2017-03-30",
       "type": "Microsoft.Compute/virtualMachines",
-      "name": "[concat(variables('vmName'), copyIndex())]",
+      "name": "[concat(variables('vmName'), copyIndex( "mode":"serial"))]",
       "location": "[variables('location')]",
       "copy": {
         "name": "vmcopy",
